@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/20"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="kiosk.controller.OrderSummaryController"
+            stylesheets="@/kiosk/css/style.css">
+
+    <top>
+        <ToolBar>
+            <Button text="← Back to Menu" onAction="#backToMenu"/>
+            <Label text="Your Order" styleClass="subtitle"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <TableView fx:id="table" prefHeight="380">
+            <columns>
+                <TableColumn text="Item"    prefWidth="140" fx:id="colItem"/>
+                <TableColumn text="Qty"     prefWidth="60"  fx:id="colQty"/>
+                <TableColumn text="Price"   prefWidth="80"  fx:id="colPrice"/>
+                <TableColumn text="Remove"  prefWidth="80"  fx:id="colRemove"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox alignment="CENTER_RIGHT">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label text="Total:"/>
+            <Label fx:id="lblTotal" styleClass="total"/>
+            <Button text="Checkout" onAction="#goCheckout"/>
+        </HBox>
+    </bottom>
+</BorderPane>

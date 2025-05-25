@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns="http://javafx.com/javafx/20"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="kiosk.controller.ThankYouController"
+      alignment="CENTER" spacing="20" stylesheets="@/kiosk/css/style.css">
+
+    <Label text="Thank you for your order!" styleClass="title"/>
+    <Button text="Back to Home" onAction="#goHome"/>
+</VBox>

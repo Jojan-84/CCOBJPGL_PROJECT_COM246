@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/20"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="kiosk.controller.MenuScreenController"
+            stylesheets="@/kiosk/css/style.css">
+
+    <top>
+        <ToolBar>
+            <Label text="📋 Menu" styleClass="subtitle"/>
+            <Button text="🛒 View Order" onAction="#goToOrder" BorderPane.alignment="CENTER_RIGHT"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <!-- Will be populated by controller -->
+        <TabPane fx:id="tabPane"/>
+    </center>
+</BorderPane>

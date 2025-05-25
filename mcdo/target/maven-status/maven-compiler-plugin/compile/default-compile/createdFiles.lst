@@ -1,0 +1,14 @@
+kiosk/model/Order.class
+kiosk/model/OrderItem.class
+kiosk/session/OrderSession.class
+kiosk/controller/OrderSummaryController$RemoveButtonCell.class
+kiosk/controller/MainMenuController.class
+kiosk/controller/CheckoutController.class
+kiosk/controller/OrderSummaryController$SpinnerTableCell.class
+kiosk/controller/ThankYouController.class
+kiosk/model/MenuItem.class
+kiosk/controller/OrderSummaryController.class
+kiosk/MainApp.class
+kiosk/controller/MenuScreenController.class
+kiosk/SceneManager.class
+kiosk/util/CurrencyHelper.class
