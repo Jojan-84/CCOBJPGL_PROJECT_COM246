@@ -1,0 +1,27 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="mcdo.controller.CheckoutController">
+
+    <center>
+        <TableView fx:id="table" prefWidth="600">
+            <columns>
+                <TableColumn fx:id="colName"    text="Item"    prefWidth="250"/>
+                <TableColumn fx:id="colQty"     text="Qty"     prefWidth="60"/>
+                <TableColumn fx:id="colPrice"   text="Price"   prefWidth="90"/>
+                <TableColumn fx:id="colLineTot" text="Total"   prefWidth="100"/>
+                <TableColumn fx:id="colAction"  text=""        prefWidth="80"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <bottom>
+        <HBox spacing="20" alignment="CENTER_RIGHT" padding="10">
+            <Label text="Grand Total:"/>
+            <Label fx:id="grandTotal" style="-fx-font-size:18; -fx-font-weight:bold;"/>
+            <Button text="Order More"  onAction="#backToMenu"/>
+            <Button text="Complete Order" onAction="#completeOrder"/>
+        </HBox>
+    </bottom>
+</BorderPane>
