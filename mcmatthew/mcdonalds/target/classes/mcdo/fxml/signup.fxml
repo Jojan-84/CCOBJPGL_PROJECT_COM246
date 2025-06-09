@@ -1,13 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mcdo.controller.SignUpController">
    <children>
-      <TextField fx:id="newusername" layoutX="271.0" layoutY="187.0" />
-      <PasswordField fx:id="newpassword" layoutX="271.0" layoutY="240.0" />
+      <Pane prefHeight="98.0" prefWidth="1280.0" style="-fx-background-color: #DA291C;">
+         <children>
+            <Label layoutX="94.0" layoutY="31.0" prefHeight="46.0" prefWidth="392.0" text="Mcdonald's Kiosk" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="38.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="85.0" fitWidth="108.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@mcdonalds-png-logo-2772.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="580.0" layoutY="120.0" prefHeight="40.0" prefWidth="120.0" text="Sign Up" textFill="RED">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="271.0" layoutY="200.0" prefHeight="40.0" prefWidth="176.0" text="Username:" textFill="#0b0b0b">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="newusername" layoutX="459.0" layoutY="200.0" prefHeight="35.0" prefWidth="300.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="271.0" layoutY="260.0" prefHeight="40.0" prefWidth="176.0" text="Password:" textFill="#0b0b0b">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="newpassword" layoutX="459.0" layoutY="260.0" prefHeight="35.0" prefWidth="300.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <Label layoutX="271.0" layoutY="320.0" prefHeight="40.0" prefWidth="200.0" text="Confirm Password:" textFill="#0b0b0b">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="confirmpassword" layoutX="459.0" layoutY="320.0" prefHeight="35.0" prefWidth="300.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </PasswordField>
+      <Button fx:id="signupbutton" layoutX="461.0" layoutY="400.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="150.0" style="-fx-background-color: #DA291C;" text="Sign Up" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="backbutton" layoutX="630.0" layoutY="400.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="150.0" style="-fx-background-color: #666666;" text="Back to Login" textFill="WHITE">
+         <font>
+            <Font name="Arial Black" size="16.0" />
+         </font>
+      </Button>
+      <Label fx:id="statuslabel" layoutX="461.0" layoutY="460.0" prefHeight="30.0" prefWidth="300.0" textFill="RED">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

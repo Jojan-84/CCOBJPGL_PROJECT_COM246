@@ -12,22 +12,52 @@ public final class Cart {
     private Cart() {}   // no instances
 
     /* --------------- API ---------------- */
-    public static ObservableList<OrderItem> getItems() { return ITEMS; }
-
-    public static void add(Product p) {
-        // merge if the item already exists
-        ITEMS.stream()
-             .filter(oi -> oi.getProduct().equals(p))
-             .findFirst()
-             .ifPresentOrElse(OrderItem::increment,
-                              () -> ITEMS.add(new OrderItem(p)));
+    public static ObservableList<OrderItem> getItems() { 
+        return ITEMS; 
     }
 
-    public static void remove(OrderItem oi) { ITEMS.remove(oi); }
+    public static void add(Product p) {
+        if (p == null) {
+            System.err.println("Cannot add null product to cart");
+            return;
+        }
+        
+        try {
+            // merge if the item already exists
+            ITEMS.stream()
+                 .filter(oi -> oi.getProduct().equals(p))
+                 .findFirst()
+                 .ifPresentOrElse(OrderItem::increment,
+                                  () -> ITEMS.add(new OrderItem(p)));
+        } catch (Exception e) {
+            System.err.println("Error adding product to cart: " + e.getMessage());
+        }
+    }
 
-    public static void clear() { ITEMS.clear(); }
+    public static void remove(OrderItem oi) { 
+        if (oi != null) {
+            ITEMS.remove(oi); 
+        }
+    }
+
+    public static void clear() { 
+        ITEMS.clear(); 
+    }
 
     public static double getTotal() {
-        return ITEMS.stream().mapToDouble(OrderItem::getLineTotal).sum();
+        try {
+            return ITEMS.stream().mapToDouble(OrderItem::getLineTotal).sum();
+        } catch (Exception e) {
+            System.err.println("Error calculating cart total: " + e.getMessage());
+            return 0.0;
+        }
+    }
+    
+    public static int getItemCount() {
+        return ITEMS.stream().mapToInt(OrderItem::getQuantity).sum();
+    }
+    
+    public static boolean isEmpty() {
+        return ITEMS.isEmpty();
     }
 }

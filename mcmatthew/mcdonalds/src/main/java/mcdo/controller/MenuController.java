@@ -104,10 +104,10 @@ public class MenuController {
         price.getStyleClass().add("price");
 
         Button add = new Button("Add");
-        add.setOnAction(e -> Cart.add(p));
         add.setOnAction(e -> {
             Cart.add(p);
             updateTotalLabel();
+            System.out.println("Added " + p.getName() + " to cart");
         });
 
         card.getChildren().addAll(iv, name, price, add);

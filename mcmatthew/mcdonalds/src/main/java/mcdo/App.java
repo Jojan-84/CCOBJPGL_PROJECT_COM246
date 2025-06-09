@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import mcdo.util.Constants;
 
 /**
  * Main entry-point for the McDonald's kiosk.
@@ -17,7 +18,7 @@ public class App extends Application {
     private static Stage primaryStage;   // kept for global navigation
     private static Scene scene;          // current scene (always non-null after start)
 
-    private static String orderType;     // “Dine-in” | “Take-out”
+    private static String orderType;     // "Dine-in" | "Take-out"
 
     /* ───────────  JavaFX life-cycle  ─────────── */
     @Override
@@ -25,12 +26,16 @@ public class App extends Application {
         /* 1️⃣  cache the stage reference immediately */
         primaryStage = stage;
 
-        /* 2️⃣  load first view (“welcome.fxml”) */
-        scene = new Scene(loadFXML("welcome"), 1280, 720);
+        /* 2️⃣  load first view ("welcome.fxml") */
+        scene = new Scene(loadFXML(Constants.WELCOME_FXML), 
+                         Constants.WINDOW_WIDTH, 
+                         Constants.WINDOW_HEIGHT);
 
         /* 3️⃣  normal stage plumbing */
         primaryStage.setScene(scene);
-        primaryStage.setTitle("McDonald's Kiosk");
+        primaryStage.setTitle(Constants.APP_TITLE);
+        primaryStage.setResizable(false); // Fixed size for kiosk
+        primaryStage.centerOnScreen();
         primaryStage.show();
     }
 
@@ -57,7 +62,7 @@ public class App extends Application {
 
     /* ───────────  helpers  ─────────── */
 
-    /** Loads an FXML from the class-path location “/mcdo/fxml/<name>.fxml”. */
+    /** Loads an FXML from the class-path location "/mcdo/fxml/<n>.fxml". */
     private static Parent loadFXML(String name) throws IOException {
         FXMLLoader loader = new FXMLLoader(
                 App.class.getResource("/mcdo/fxml/" + name + ".fxml"));

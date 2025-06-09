@@ -1,75 +1,89 @@
 package mcdo.controller;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.Scanner;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-import mcdo.model.User;
+import mcdo.App;
+import mcdo.service.AuthenticationService;
+import mcdo.util.Constants;
 
 public class StartController {
 
     @FXML
-    Label usernamelabel;
+    private Label usernamelabel;
 
     @FXML
-    Label passwordlabel;
+    private Label passwordlabel;
 
     @FXML
-    TextField usernametextfield;
+    private TextField usernametextfield;
 
     @FXML
-    PasswordField passwordfield;
+    private PasswordField passwordfield;
 
     @FXML
-    Button loginbutton;
+    private Button loginbutton;
 
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
+    @FXML
+    private Button signupbutton;
 
-    public void loginbuttonHandler(ActionEvent event) throws IOException{
+    private AuthenticationService authService;
 
-        String uname = usernametextfield.getText();
-        String pword = passwordfield.getText();
-
-        User user = new User(uname, pword, "", "");
-
-        File accountsfile = new File("accounts.txt");
-
-        if (accountsfile.exists()) {
-            Scanner filescanner = new Scanner(accountsfile);
-
-            while (filescanner.hasNextLine()) {
-
-                String data = filescanner.nextLine();
-    
-                String username_from_file = data.split(",")[0];
-                String password_from_file = data.split(",")[1];
-
-                if (username_from_file.equals(user.getUsername()) && password_from_file.equals(user.getPassword())) {
-                    
-                    System.out.println("Login successful");
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/mcdo/fxml/order_type.fxml"));
-                    root = loader.load();
-
-                    // Load stage and scene
-                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
-                }     
+    @FXML
+    private void initialize() {
+        authService = new AuthenticationService();
+        
+        // Set up sign up button action
+        signupbutton.setOnAction(event -> {
+            try {
+                App.setRoot(Constants.SIGNUP_FXML);
+            } catch (IOException e) {
+                showErrorAlert(Constants.NAVIGATION_ERROR_TITLE, "Could not open sign up page: " + e.getMessage());
             }
+        });
+    }
+
+    @FXML
+    public void loginbuttonHandler(ActionEvent event) {
+        String username = usernametextfield.getText();
+        String password = passwordfield.getText();
+
+        // Input validation
+        if (username == null || username.trim().isEmpty()) {
+            showErrorAlert(Constants.LOGIN_ERROR_TITLE, Constants.ERROR_EMPTY_USERNAME);
+            return;
         }
+
+        if (password == null || password.trim().isEmpty()) {
+            showErrorAlert(Constants.LOGIN_ERROR_TITLE, Constants.ERROR_EMPTY_PASSWORD);
+            return;
+        }
+
+        // Authenticate user
+        if (authService.authenticate(username, password)) {
+            System.out.println(Constants.LOGIN_SUCCESS_MSG + username);
+            try {
+                App.setRoot(Constants.ORDER_TYPE_FXML);
+            } catch (IOException e) {
+                showErrorAlert(Constants.NAVIGATION_ERROR_TITLE, "Could not proceed to order selection: " + e.getMessage());
+            }
+        } else {
+            showErrorAlert(Constants.LOGIN_FAILED_TITLE, Constants.ERROR_INVALID_CREDENTIALS);
+            // Clear password field for security
+            passwordfield.clear();
+        }
+    }
+
+    private void showErrorAlert(String title, String message) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }
