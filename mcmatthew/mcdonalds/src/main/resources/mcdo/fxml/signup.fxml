@@ -7,10 +7,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mcdo.controller.SignUpController">
    <children>
+      <!-- Header -->
       <Pane prefHeight="98.0" prefWidth="1280.0" style="-fx-background-color: #DA291C;">
          <children>
             <Label layoutX="94.0" layoutY="31.0" prefHeight="46.0" prefWidth="392.0" text="Mcdonald's Kiosk" textFill="WHITE">
@@ -25,55 +27,110 @@
             </ImageView>
          </children>
       </Pane>
-      <Label layoutX="580.0" layoutY="120.0" prefHeight="40.0" prefWidth="120.0" text="Sign Up" textFill="RED">
-         <font>
-            <Font name="System Bold" size="31.0" />
-         </font>
-      </Label>
-      <Label layoutX="271.0" layoutY="200.0" prefHeight="40.0" prefWidth="176.0" text="Username:" textFill="#0b0b0b">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Label>
-      <TextField fx:id="newusername" layoutX="459.0" layoutY="200.0" prefHeight="35.0" prefWidth="300.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </TextField>
-      <Label layoutX="271.0" layoutY="260.0" prefHeight="40.0" prefWidth="176.0" text="Password:" textFill="#0b0b0b">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="newpassword" layoutX="459.0" layoutY="260.0" prefHeight="35.0" prefWidth="300.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </PasswordField>
-      <Label layoutX="271.0" layoutY="320.0" prefHeight="40.0" prefWidth="200.0" text="Confirm Password:" textFill="#0b0b0b">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="confirmpassword" layoutX="459.0" layoutY="320.0" prefHeight="35.0" prefWidth="300.0">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </PasswordField>
-      <Button fx:id="signupbutton" layoutX="461.0" layoutY="400.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="150.0" style="-fx-background-color: #DA291C;" text="Sign Up" textFill="WHITE">
-         <font>
-            <Font name="Arial Black" size="16.0" />
-         </font>
-      </Button>
-      <Button fx:id="backbutton" layoutX="630.0" layoutY="400.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="150.0" style="-fx-background-color: #666666;" text="Back to Login" textFill="WHITE">
-         <font>
-            <Font name="Arial Black" size="16.0" />
-         </font>
-      </Button>
-      <Label fx:id="statuslabel" layoutX="461.0" layoutY="460.0" prefHeight="30.0" prefWidth="300.0" textFill="RED">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
+      
+      <!-- Sign Up Form Container -->
+      <VBox alignment="CENTER" layoutX="440.0" layoutY="140.0" prefHeight="500.0" prefWidth="400.0" 
+            style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 20, 0, 0, 5); -fx-padding: 40;">
+         <children>
+            <!-- Title -->
+            <Label text="Create Account" textFill="#DA291C" VBox.vgrow="NEVER">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Label>
+            
+            <!-- Subtitle -->
+            <Label text="Join McDonald's Kiosk" textFill="#666666" VBox.vgrow="NEVER" style="-fx-padding: 0 0 30 0;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            
+            <!-- Username Field -->
+            <VBox spacing="8" style="-fx-padding: 0 0 15 0;">
+               <children>
+                  <Label text="Username:" textFill="#333333">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="newusername" prefHeight="40.0" prefWidth="320.0" promptText="Enter your username" 
+                            style="-fx-font-size: 16px; -fx-padding: 10; -fx-border-color: #cccccc; -fx-border-radius: 8; -fx-background-radius: 8;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </VBox>
+            
+            <!-- Password Field -->
+            <VBox spacing="8" style="-fx-padding: 0 0 15 0;">
+               <children>
+                  <Label text="Password:" textFill="#333333">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="newpassword" prefHeight="40.0" prefWidth="320.0" promptText="Enter your password" 
+                                style="-fx-font-size: 16px; -fx-padding: 10; -fx-border-color: #cccccc; -fx-border-radius: 8; -fx-background-radius: 8;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </PasswordField>
+               </children>
+            </VBox>
+            
+            <!-- Confirm Password Field -->
+            <VBox spacing="8" style="-fx-padding: 0 0 15 0;">
+               <children>
+                  <Label text="Confirm Password:" textFill="#333333">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="confirmpassword" prefHeight="40.0" prefWidth="320.0" promptText="Confirm your password" 
+                                style="-fx-font-size: 16px; -fx-padding: 10; -fx-border-color: #cccccc; -fx-border-radius: 8; -fx-background-radius: 8;">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </PasswordField>
+               </children>
+            </VBox>
+            
+            <!-- Status Label -->
+            <Label fx:id="statuslabel" prefHeight="25.0" prefWidth="320.0" textFill="RED" style="-fx-padding: 10 0 15 0; -fx-alignment: center;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            
+            <!-- Requirements Info -->
+            <Label text="Password must be at least 3 characters long" textFill="#999999" style="-fx-padding: 0 0 20 0; -fx-font-style: italic;">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </Label>
+            
+            <!-- Buttons -->
+            <VBox spacing="15" style="-fx-alignment: center;">
+               <children>
+                  <Button fx:id="signupbutton" prefHeight="50.0" prefWidth="200.0" 
+                         style="-fx-background-color: #DA291C; -fx-background-radius: 10; -fx-cursor: hand;" 
+                         text="Create Account" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="backbutton" prefHeight="40.0" prefWidth="150.0" 
+                         style="-fx-background-color: #666666; -fx-background-radius: 10; -fx-cursor: hand;" 
+                         text="Back to Login" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
    </children>
 </Pane>

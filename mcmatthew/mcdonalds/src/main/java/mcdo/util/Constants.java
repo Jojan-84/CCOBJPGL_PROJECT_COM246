@@ -55,6 +55,13 @@ public final class Constants {
     public static final String ERROR_INVALID_CREDENTIALS = "Invalid username or password. Please try again.";
     public static final String ERROR_PASSWORD_TOO_SHORT = "Password must be at least " + MIN_PASSWORD_LENGTH + " characters long.";
     public static final String ERROR_PASSWORDS_DONT_MATCH = "Passwords do not match.";
+    public static final String ERROR_USERNAME_EXISTS = "Username already exists. Please choose a different username.";
+    public static final String ERROR_INVALID_CHARACTERS = "Contains invalid characters (commas, line breaks not allowed).";
+    
+    // Success Messages
+    public static final String SUCCESS_REGISTRATION = "Account created successfully! You can now log in.";
+    public static final String SUCCESS_USERNAME_AVAILABLE = "Username available ✓";
+    public static final String SUCCESS_PASSWORDS_MATCH = "Passwords match ✓";
     
     // Animation
     public static final int FADE_DURATION_MS = 300;
