@@ -10,165 +10,169 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="1080" prefWidth="1920" style="-fx-background-color:#f5f5f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mcdo.controller.ReceiptController">
+<ScrollPane fitToWidth="true" fitToHeight="true" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mcdo.controller.ReceiptController">
+    <content>
+        <BorderPane prefHeight="1080" prefWidth="1920" style="-fx-background-color:#f5f5f5;">
 
-    <!-- Top Bar -->
-    <top>
-        <HBox prefHeight="120" style="-fx-background-color:#FFC72C; -fx-padding: 24;">
-            <children>
-                <VBox alignment="CENTER" style="-fx-background-color:#DA291C; -fx-background-radius: 50; -fx-pref-width: 80; -fx-pref-height: 80;">
+            <!-- Top Bar -->
+            <top>
+                <HBox prefHeight="120" style="-fx-background-color:#FFC72C; -fx-padding: 24;">
                     <children>
-                        <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: white;" text="M">
-                            <font><Font name="Segoe UI Black" size="32" /></font>
+                        <VBox alignment="CENTER" style="-fx-background-color:#DA291C; -fx-background-radius: 50; -fx-pref-width: 80; -fx-pref-height: 80;">
+                            <children>
+                                <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: white;" text="M">
+                                    <font><Font name="Segoe UI Black" size="32" /></font>
+                                </Label>
+                            </children>
+                        </VBox>
+                        <Label style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: white; -fx-padding: 0 0 0 24;" text="McDonald's Receipt">
+                            <font><Font name="Segoe UI Black" size="48" /></font>
                         </Label>
                     </children>
-                </VBox>
-                <Label style="-fx-font-size: 48px; -fx-font-weight: bold; -fx-text-fill: white; -fx-padding: 0 0 0 24;" text="McDonald's Receipt">
-                    <font><Font name="Segoe UI Black" size="48" /></font>
-                </Label>
-            </children>
-        </HBox>
-    </top>
+                </HBox>
+            </top>
 
-    <!-- Receipt Content -->
-    <center>
-        <VBox alignment="CENTER" style="-fx-padding: 32;">
-            <children>
-                <!-- Receipt Paper Container -->
-                <VBox maxWidth="480" style="-fx-background-color: white; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0, 0, 4); -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-border-radius: 8;">
+            <!-- Receipt Content -->
+            <center>
+                <VBox alignment="CENTER" style="-fx-padding: 32;">
                     <children>
-                        <VBox style="-fx-padding: 24;">
+                        <!-- Receipt Paper Container -->
+                        <VBox maxWidth="480" style="-fx-background-color: white; -fx-background-radius: 8; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0, 0, 4); -fx-border-color: #e0e0e0; -fx-border-width: 1; -fx-border-radius: 8;">
                             <children>
-                                <!-- McDonald's Header -->
-                                <VBox alignment="CENTER" spacing="6">
+                                <VBox style="-fx-padding: 24;">
                                     <children>
-                                        <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #DA291C;" text="McDonald's">
-                                            <font><Font name="Segoe UI Black" size="32" /></font>
-                                        </Label>
-                                        <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="I'm Lovin' It" />
-                                        <Label style="-fx-font-size: 12px; -fx-text-fill: #999999;" text="Store #COM246 - Kiosk Order" />
-                                        <Label style="-fx-font-size: 12px; -fx-text-fill: #999999;" text="National University Manila" />
-                                        <Label style="-fx-font-size: 12px; -fx-text-fill: #999999;" text="Phone: (555) 123-4567" />
-                                    </children>
-                                </VBox>
-
-                                <!-- Separator -->
-                                <Separator style="-fx-padding: 16 0;" />
-
-                                <!-- Order Info -->
-                                <VBox spacing="8">
-                                    <children>
-                                        <HBox>
+                                        <!-- McDonald's Header -->
+                                        <VBox alignment="CENTER" spacing="6">
                                             <children>
-                                                <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Order #:" />
-                                                <Region HBox.hgrow="ALWAYS" />
-                                                <Label fx:id="orderNumberLabel" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="1001" />
+                                                <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #DA291C;" text="McDonald's">
+                                                    <font><Font name="Segoe UI Black" size="32" /></font>
+                                                </Label>
+                                                <Label style="-fx-font-size: 14px; -fx-text-fill: #666666;" text="I'm Lovin' It" />
+                                                <Label style="-fx-font-size: 12px; -fx-text-fill: #999999;" text="Store #COM246 - Kiosk Order" />
+                                                <Label style="-fx-font-size: 12px; -fx-text-fill: #999999;" text="National University Manila" />
+                                                <Label style="-fx-font-size: 12px; -fx-text-fill: #999999;" text="Phone: (555) 123-4567" />
                                             </children>
-                                        </HBox>
-                                        <HBox>
-                                            <children>
-                                                <Label style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Date/Time:" />
-                                                <Region HBox.hgrow="ALWAYS" />
-                                                <Label fx:id="dateTimeLabel" style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="01/01/2024 12:00:00" />
-                                            </children>
-                                        </HBox>
-                                        <HBox>
-                                            <children>
-                                                <Label style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Cashier:" />
-                                                <Region HBox.hgrow="ALWAYS" />
-                                                <Label fx:id="cashierLabel" style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Kiosk #01" />
-                                            </children>
-                                        </HBox>
-                                    </children>
-                                </VBox>
+                                        </VBox>
 
-                                <!-- Separator -->
-                                <Separator style="-fx-padding: 16 0;" />
+                                        <!-- Separator -->
+                                        <Separator style="-fx-padding: 16 0;" />
 
-                                <!-- Order Details -->
-                                <VBox spacing="12">
-                                    <children>
-                                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #DA291C;" text="ORDER DETAILS" />
-                                        
-                                        <!-- Scrollable Items Container -->
-                                            <ScrollPane fx:id="itemsScrollPane" prefHeight="400" minHeight="400" style="-fx-background-color: transparent; -fx-border-color: transparent;" fitToWidth="true">
-                                            <content>
-                                                <VBox fx:id="itemsContainer" prefHeight="146.0" prefWidth="412.0" spacing="0" style="-fx-padding: 8;" />
-                                            </content>
-                                        </ScrollPane>
-                                    </children>
-                                </VBox>
+                                        <!-- Order Info -->
+                                        <VBox spacing="8">
+                                            <children>
+                                                <HBox>
+                                                    <children>
+                                                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px;" text="Order #:" />
+                                                        <Region HBox.hgrow="ALWAYS" />
+                                                        <Label fx:id="orderNumberLabel" style="-fx-font-weight: bold; -fx-font-size: 14px;" text="1001" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox>
+                                                    <children>
+                                                        <Label style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Date/Time:" />
+                                                        <Region HBox.hgrow="ALWAYS" />
+                                                        <Label fx:id="dateTimeLabel" style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="01/01/2024 12:00:00" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox>
+                                                    <children>
+                                                        <Label style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Cashier:" />
+                                                        <Region HBox.hgrow="ALWAYS" />
+                                                        <Label fx:id="cashierLabel" style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Kiosk #01" />
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
 
-                                <!-- Separator -->
-                                <Separator style="-fx-padding: 16 0;" />
+                                        <!-- Separator -->
+                                        <Separator style="-fx-padding: 16 0;" />
 
-                                <!-- Totals Section -->
-                                <VBox spacing="8">
-                                    <children>
-                                        <HBox>
+                                        <!-- Order Details -->
+                                        <VBox spacing="12">
                                             <children>
-                                                <Label style="-fx-font-size: 14px;" text="Subtotal:" />
-                                                <Region HBox.hgrow="ALWAYS" />
-                                                <Label fx:id="subtotalLabel" style="-fx-font-size: 14px;" text="₱ 0.00" />
+                                                <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #DA291C;" text="ORDER DETAILS" />
+                                                
+                                                <!-- Scrollable Items Container -->
+                                                    <ScrollPane fx:id="itemsScrollPane" prefHeight="400" minHeight="400" style="-fx-background-color: transparent; -fx-border-color: transparent;" fitToWidth="true">
+                                                    <content>
+                                                        <VBox fx:id="itemsContainer" prefHeight="146.0" prefWidth="412.0" spacing="0" style="-fx-padding: 8;" />
+                                                    </content>
+                                                </ScrollPane>
                                             </children>
-                                        </HBox>
-                                        <HBox>
-                                            <children>
-                                                <Label style="-fx-font-size: 14px;" text="VAT (12%):" />
-                                                <Region HBox.hgrow="ALWAYS" />
-                                                <Label fx:id="taxLabel" style="-fx-font-size: 14px;" text="₱ 0.00" />
-                                            </children>
-                                        </HBox>
-                                        <Separator />
-                                        <HBox>
-                                            <children>
-                                                <Label style="-fx-font-weight: bold; -fx-font-size: 18px;" text="TOTAL:" />
-                                                <Region HBox.hgrow="ALWAYS" />
-                                                <Label fx:id="totalLabel" style="-fx-font-weight: bold; -fx-font-size: 18px; -fx-text-fill: #DA291C;" text="₱ 0.00" />
-                                            </children>
-                                        </HBox>
-                                        <HBox>
-                                            <children>
-                                                <Label style="-fx-font-size: 14px;" text="Amount Paid:" />
-                                                <Region HBox.hgrow="ALWAYS" />
-                                                <Label fx:id="amountPaidLabel" style="-fx-font-size: 14px;" text="₱ 0.00" />
-                                            </children>
-                                        </HBox>
-                                        <HBox>
-                                            <children>
-                                                <Label style="-fx-font-size: 14px;" text="Change:" />
-                                                <Region HBox.hgrow="ALWAYS" />
-                                                <Label fx:id="changeLabel" style="-fx-font-size: 14px;" text="₱ 0.00" />
-                                            </children>
-                                        </HBox>
-                                    </children>
-                                </VBox>
+                                        </VBox>
 
-                                <!-- Separator -->
-                                <Separator style="-fx-padding: 16 0;" />
+                                        <!-- Separator -->
+                                        <Separator style="-fx-padding: 16 0;" />
 
-                                <!-- Footer Messages -->
-                                <VBox alignment="CENTER" spacing="6">
-                                    <children>
-                                        <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #DA291C;" text="Thank you for choosing McDonald's!" />
-                                        <Label style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Have a great day!" />
-                                        <Label style="-fx-font-size: 10px; -fx-text-fill: #999999;" text="Visit mcdonalds.com for nutrition info" />
-                                        <Label style="-fx-font-size: 10px; -fx-text-fill: #999999;" text="Survey code: COM246" />
+                                        <!-- Totals Section -->
+                                        <VBox spacing="8">
+                                            <children>
+                                                <HBox>
+                                                    <children>
+                                                        <Label style="-fx-font-size: 14px;" text="Subtotal:" />
+                                                        <Region HBox.hgrow="ALWAYS" />
+                                                        <Label fx:id="subtotalLabel" style="-fx-font-size: 14px;" text="₱ 0.00" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox>
+                                                    <children>
+                                                        <Label style="-fx-font-size: 14px;" text="VAT (12%):" />
+                                                        <Region HBox.hgrow="ALWAYS" />
+                                                        <Label fx:id="taxLabel" style="-fx-font-size: 14px;" text="₱ 0.00" />
+                                                    </children>
+                                                </HBox>
+                                                <Separator />
+                                                <HBox>
+                                                    <children>
+                                                        <Label style="-fx-font-weight: bold; -fx-font-size: 18px;" text="TOTAL:" />
+                                                        <Region HBox.hgrow="ALWAYS" />
+                                                        <Label fx:id="totalLabel" style="-fx-font-weight: bold; -fx-font-size: 18px; -fx-text-fill: #DA291C;" text="₱ 0.00" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox>
+                                                    <children>
+                                                        <Label style="-fx-font-size: 14px;" text="Amount Paid:" />
+                                                        <Region HBox.hgrow="ALWAYS" />
+                                                        <Label fx:id="amountPaidLabel" style="-fx-font-size: 14px;" text="₱ 0.00" />
+                                                    </children>
+                                                </HBox>
+                                                <HBox>
+                                                    <children>
+                                                        <Label style="-fx-font-size: 14px;" text="Change:" />
+                                                        <Region HBox.hgrow="ALWAYS" />
+                                                        <Label fx:id="changeLabel" style="-fx-font-size: 14px;" text="₱ 0.00" />
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+
+                                        <!-- Separator -->
+                                        <Separator style="-fx-padding: 16 0;" />
+
+                                        <!-- Footer Messages -->
+                                        <VBox alignment="CENTER" spacing="6">
+                                            <children>
+                                                <Label style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #DA291C;" text="Thank you for choosing McDonald's!" />
+                                                <Label style="-fx-font-size: 12px; -fx-text-fill: #666666;" text="Have a great day!" />
+                                                <Label style="-fx-font-size: 10px; -fx-text-fill: #999999;" text="Visit mcdonalds.com for nutrition info" />
+                                                <Label style="-fx-font-size: 10px; -fx-text-fill: #999999;" text="Survey code: COM246" />
+                                            </children>
+                                        </VBox>
                                     </children>
                                 </VBox>
                             </children>
                         </VBox>
+
+                        <!-- Action Buttons -->
+                        <HBox alignment="CENTER" spacing="24" style="-fx-padding: 24 0 0 0;">
+                            <children>
+                                <Button onAction="#handlePrint" style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-padding: 12 24; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 8;" text="🖨 Print Receipt" />
+                                <Button onAction="#handleNewOrder" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-padding: 12 24; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 8;" text="🏠 New Order" />
+                            </children>
+                        </HBox>
                     </children>
                 </VBox>
-
-                <!-- Action Buttons -->
-                <HBox alignment="CENTER" spacing="24" style="-fx-padding: 24 0 0 0;">
-                    <children>
-                        <Button onAction="#handlePrint" style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-padding: 12 24; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 8;" text="🖨 Print Receipt" />
-                        <Button onAction="#handleNewOrder" style="-fx-background-color: #28a745; -fx-text-fill: white; -fx-padding: 12 24; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 8;" text="🏠 New Order" />
-                    </children>
-                </HBox>
-            </children>
-        </VBox>
-    </center>
-</BorderPane>
+            </center>
+        </BorderPane>
+    </content>
+</ScrollPane>
