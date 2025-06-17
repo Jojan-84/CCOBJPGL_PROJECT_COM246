@@ -26,6 +26,7 @@ import javafx.geometry.Pos;
 import mcdo.util.Constants;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Region;
 
 import java.util.ResourceBundle;
 
@@ -47,42 +48,82 @@ public class MenuController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         // Initialize catalog with default items
         catalog = new ArrayList<>(List.of(
-            new Product("Burger Mcdo", 5.99, "/images/fooditems/burger.png", Product.Category.BURGER, 
+            new Product("Burger Mcdo", 89.00, "/images/fooditems/burger.png", Product.Category.BURGER, 
                 "Classic beef patty with onions, pickles, mustard, and ketchup"),
-            new Product("Cheeseburger", 4.49, "/images/fooditems/cheeseburger.png", Product.Category.BURGER,
+            new Product("Cheeseburger", 99.00, "/images/fooditems/cheeseburger.png", Product.Category.BURGER,
                 "Beef patty with cheese, onions, pickles, mustard, and ketchup"),
-            new Product("McChicken Sandwich", 5.59, "/images/fooditems/chickensandwich.png", Product.Category.BURGER,
+            new Product("McChicken Sandwich", 109.00, "/images/fooditems/chickensandwich.png", Product.Category.BURGER,
                 "Crispy chicken fillet with lettuce and creamy mayonnaise"),
-            new Product("Coke", 1.99, "/images/fooditems/coke.png", Product.Category.DRINK,
+            new Product("Coke", 45.00, "/images/fooditems/coke.png", Product.Category.DRINK,
                 "Refreshing Coca-Cola soft drink"),
-            new Product("Coke McFloat", 1.99, "/images/fooditems/mcfloat.png", Product.Category.DRINK,
+            new Product("Coke McFloat", 55.00, "/images/fooditems/mcfloat.png", Product.Category.DRINK,
                 "Coca-Cola with vanilla soft serve"),
-            new Product("1pc. Chicken McDo with Rice", 3.99, "/images/fooditems/chickenrice.png", Product.Category.CHICKEN,
+            new Product("1pc. Chicken McDo with Rice", 99.00, "/images/fooditems/chickenrice.png", Product.Category.CHICKEN,
                 "One piece of crispy fried chicken with steamed rice"),
-            new Product("2pc. Chicken McDo with Rice", 4.99, "/images/fooditems/2chicken.png", Product.Category.CHICKEN,
+            new Product("2pc. Chicken McDo with Rice", 149.00, "/images/fooditems/2chicken.png", Product.Category.CHICKEN,
                 "Two pieces of crispy fried chicken with steamed rice"),
-            new Product("Crispy Chicken Fillet with Rice", 5.99, "/images/fooditems/fillet.png", Product.Category.CHICKEN,
+            new Product("Crispy Chicken Fillet with Rice", 119.00, "/images/fooditems/fillet.png", Product.Category.CHICKEN,
                 "Crispy chicken fillet with steamed rice"),
-            new Product("6pc. Chicken McNuggets with Fries", 5.99, "/images/fooditems/nuggets.png", Product.Category.CHICKEN,
+            new Product("6pc. Chicken McNuggets with Fries", 159.00, "/images/fooditems/nuggets.png", Product.Category.CHICKEN,
                 "Six pieces of crispy chicken nuggets with fries"),
-            new Product("Cheesy Eggdesal", 2.49, "/images/fooditems/eggdesal.png", Product.Category.BREAKFAST,
+            new Product("Cheesy Eggdesal", 69.00, "/images/fooditems/eggdesal.png", Product.Category.BREAKFAST,
                 "Egg and cheese on a soft bun"),
-            new Product("Sausage McMuffin with Egg", 2.49, "/images/fooditems/sausage.png", Product.Category.BREAKFAST,
+            new Product("Sausage McMuffin with Egg", 89.00, "/images/fooditems/sausage.png", Product.Category.BREAKFAST,
                 "Sausage patty and egg on an English muffin"),
-            new Product("Sausage Platter with Rice", 2.49, "/images/fooditems/sausage1.png", Product.Category.BREAKFAST,
+            new Product("Sausage Platter with Rice", 99.00, "/images/fooditems/sausage1.png", Product.Category.BREAKFAST,
                 "Sausage with scrambled eggs and rice"),
-            new Product("Egg McMuffin", 2.49, "/images/fooditems/egg1.png", Product.Category.BREAKFAST,
+            new Product("Egg McMuffin", 79.00, "/images/fooditems/egg1.png", Product.Category.BREAKFAST,
                 "Egg and cheese on an English muffin"),
-            new Product("Hash Browns", 2.49, "/images/fooditems/hash.png", Product.Category.BREAKFAST,
+            new Product("Hash Browns", 45.00, "/images/fooditems/hash.png", Product.Category.BREAKFAST,
                 "Crispy golden hash browns"),
-            new Product("2pc. Hotcakes with Sausage", 2.49, "/images/fooditems/sausage2.png", Product.Category.BREAKFAST,
+            new Product("2pc. Hotcakes with Sausage", 119.00, "/images/fooditems/sausage2.png", Product.Category.BREAKFAST,
                 "Two hotcakes with sausage patty"),
-            new Product("2pc. Hotcakes", 2.49, "/images/fooditems/pancake.png", Product.Category.BREAKFAST,
+            new Product("2pc. Hotcakes", 99.00, "/images/fooditems/pancake.png", Product.Category.BREAKFAST,
                 "Two fluffy hotcakes with syrup"),
-            new Product("Large Fries", 2.49, "/images/fooditems/fries.png", Product.Category.FRIES,
+            new Product("Large Fries", 65.00, "/images/fooditems/fries.png", Product.Category.FRIES,
                 "Crispy golden french fries"),
-            new Product("McSpaghetti", 3.49, "/images/fooditems/mcspag.png", Product.Category.SPAGHETTI,
-                "Spaghetti with sweet-style sauce and ground beef")
+            new Product("BFF Fries", 175.00, "/images/fooditems/bff.png", Product.Category.FRIES,
+                "Crispy golden french fries"),
+            new Product("Large Fries N' McFloat Combo", 138.00, "/images/fooditems/lfries.png", Product.Category.FRIES,
+                "Crispy golden french fries"),
+            new Product("Cotton Candy McFloat & Medium Fries Combo", 103.00, "/images/fooditems/cfries.png", Product.Category.FRIES,
+                "Crispy golden french fries"),
+            new Product("Rasberry McFloat & Medium Fries Combo", 103.00, "/images/fooditems/rfries.png", Product.Category.FRIES,
+                "Crispy golden french fries"),
+            new Product("Grape McFloat & Medium Fries Combo", 103.00, "/images/fooditems/gfries.png", Product.Category.FRIES,
+                "Crispy golden french fries"),
+            new Product("McCafé Americano", 65.00, "/images/fooditems/americano.png", Product.Category.MCCAFE,
+                "Almost as strong as an espresso, but topped with hot water for a full-bodied flavor."),
+            new Product("McCafé Capuccino", 65.00, "/images/fooditems/capuccino.png", Product.Category.MCCAFE,
+                "Rich espresso topped with hot frothy milk, sprinkled with chocolate powder."),
+            new Product("McCafé Espresso", 65.00, "/images/fooditems/espresso.png", Product.Category.MCCAFE,
+                "Perk up with a rich, creamy shot 100% pure arabice coffee. Its small in size but really strong."),
+            new Product("McCafé Cafe Latte", 65.00, "/images/fooditems/latte.png", Product.Category.MCCAFE,
+                "It's the right mix of strong espresso and velvety steamed milk with a touch of froth."),
+            new Product("McCafé Macchiato", 65.00, "/images/fooditems/macchiato.png", Product.Category.MCCAFE,
+                "A single shot of espresso coffee with a dash of foamed milk. Served in a demitasse cup."),
+            new Product("McCafé Premium Hot Chocolate", 65.00, "/images/fooditems/chocolate.png", Product.Category.MCCAFE,
+                "Rich, premium chocolate drink with hot frothed milk and sprinkled with choco powder."),
+            new Product("McCafé Iced Mocha", 65.00, "/images/fooditems/mocha.png", Product.Category.MCCAFE,
+                "Cold espresso coffee mixed with milk and chocolate, topped with whipped cream and drizzled with chocolate syrup."),
+            new Product("McCafé Iced Americano", 65.00, "/images/fooditems/americano1.png", Product.Category.MCCAFE,
+                "A comforting blend of two parts brewed McCafé espresso and water, topped with ice."),
+            new Product("McCafé Iced Latte", 65.00, "/images/fooditems/latte1.png", Product.Category.MCCAFE,
+                "Cold espresso coffee, fresh milk, and whipped cream equals this cold milky delight."),
+            new Product("Blueberry Cheesecake", 65.00, "/images/fooditems/blueberry.png", Product.Category.MCCAFE,
+                "Rich and creamy cheesecake, with a graham crust, topped with sweetened blueberries."),
+            new Product("Dark Chocolate Cake", 65.00, "/images/fooditems/chocolate1.png", Product.Category.MCCAFE,
+                "Moist and decadent dark chocolate cake"),
+            new Product("Oreo Cheesecake", 65.00, "/images/fooditems/oreo.png", Product.Category.MCCAFE,
+                "Rich and creamy cheesecake with an Oreo crust."),
+            new Product("Chocolate Chip Cookie", 65.00, "/images/fooditems/cookiechip.png", Product.Category.MCCAFE,
+                "Chewy and buttery cookie, studded with chocolate chips"),
+            new Product("1-pc. Mushroom Pepper Steak w/ Egg Meal", 213.00, "/images/fooditems/mushroom.png", Product.Category.RICEBOWLS,
+                "Mushroom Pepper Steak with Fries Meal"),
+            new Product("2-pc. Mushroom Pepper Steak w/ Egg Meal", 243.00, "/images/fooditems/mushroom1.png", Product.Category.RICEBOWLS,
+                "Mushroom Pepper Steak with Fries Meal"),
+            new Product("1-pc. Mushroom Pepper Steak with Fries Meal", 184.00, "/images/fooditems/mushroom2.png", Product.Category.RICEBOWLS,
+                "Mushroom Pepper Steak with Fries Meal")
         ));
 
         /*  logo  */
@@ -244,35 +285,65 @@ public class MenuController implements Initializable {
 
     /* ---------- helpers ---------- */
     private void showCategory(Product.Category cat) {
-        itemsPane.getChildren().clear();
-        catalog.stream()
-               .filter(p -> p.getCategory() == cat)
-               .forEach(this::createCard);
+        // Create fade out animation
+        FadeTransition fadeOut = new FadeTransition(Duration.millis(200), itemsPane);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        
+        fadeOut.setOnFinished(e -> {
+            itemsPane.getChildren().clear();
+            catalog.stream()
+                   .filter(p -> p.getCategory() == cat)
+                   .forEach(this::createCard);
+            
+            // Create fade in animation
+            FadeTransition fadeIn = new FadeTransition(Duration.millis(300), itemsPane);
+            fadeIn.setFromValue(0.0);
+            fadeIn.setToValue(1.0);
+            fadeIn.play();
+        });
+        
+        fadeOut.play();
     }
 
     private void showAllFood() {
-        itemsPane.getChildren().clear();
-        // Group products by category
-        java.util.Map<Product.Category, List<Product>> grouped = new java.util.LinkedHashMap<>();
-        for (Product p : catalog) {
-            grouped.computeIfAbsent(p.getCategory(), k -> new java.util.ArrayList<>()).add(p);
-        }
-        for (Product.Category cat : Product.Category.values()) {
-            List<Product> products = grouped.get(cat);
-            if (products != null && !products.isEmpty()) {
-                // Create a horizontal separator with category name
-                javafx.scene.control.Label catLabel = new javafx.scene.control.Label(cat.toString().charAt(0) + cat.toString().substring(1).toLowerCase());
-                catLabel.setStyle("-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black; -fx-padding: 8 16 8 0;");
-                javafx.scene.control.Separator sep = new javafx.scene.control.Separator();
-                sep.setPrefWidth(800); // Adjust as needed for your layout
-                sep.setStyle("-fx-background-color: black; -fx-opacity: 0.5; -fx-padding: 0 0 0 0;");
-                javafx.scene.layout.HBox hbox = new javafx.scene.layout.HBox(10, catLabel, sep);
-                hbox.setStyle("-fx-alignment: center-left; -fx-padding: 24 0 8 0;");
-                itemsPane.getChildren().add(hbox);
-                // Add all products in this category
-                products.forEach(this::createCard);
+        // Create fade out animation
+        FadeTransition fadeOut = new FadeTransition(Duration.millis(200), itemsPane);
+        fadeOut.setFromValue(1.0);
+        fadeOut.setToValue(0.0);
+        
+        fadeOut.setOnFinished(e -> {
+            itemsPane.getChildren().clear();
+            // Group products by category
+            java.util.Map<Product.Category, List<Product>> grouped = new java.util.LinkedHashMap<>();
+            for (Product p : catalog) {
+                grouped.computeIfAbsent(p.getCategory(), k -> new java.util.ArrayList<>()).add(p);
             }
-        }
+            for (Product.Category cat : Product.Category.values()) {
+                List<Product> products = grouped.get(cat);
+                if (products != null && !products.isEmpty()) {
+                    // Create a horizontal separator with category name
+                    javafx.scene.control.Label catLabel = new javafx.scene.control.Label(cat.toString().charAt(0) + cat.toString().substring(1).toLowerCase());
+                    catLabel.setStyle("-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: black; -fx-padding: 8 16 8 0;");
+                    javafx.scene.control.Separator sep = new javafx.scene.control.Separator();
+                    sep.setPrefWidth(800); // Adjust as needed for your layout
+                    sep.setStyle("-fx-background-color: black; -fx-opacity: 0.5; -fx-padding: 0 0 0 0;");
+                    javafx.scene.layout.HBox hbox = new javafx.scene.layout.HBox(10, catLabel, sep);
+                    hbox.setStyle("-fx-alignment: center-left; -fx-padding: 24 0 8 0;");
+                    itemsPane.getChildren().add(hbox);
+                    // Add all products in this category
+                    products.forEach(this::createCard);
+                }
+            }
+            
+            // Create fade in animation
+            FadeTransition fadeIn = new FadeTransition(Duration.millis(300), itemsPane);
+            fadeIn.setFromValue(0.0);
+            fadeIn.setToValue(1.0);
+            fadeIn.play();
+        });
+        
+        fadeOut.play();
     }
 
     private void createCard(Product p) {
@@ -294,19 +365,19 @@ public class MenuController implements Initializable {
         quantityBox.setAlignment(Pos.CENTER);
         
         Button minusBtn = new Button("−");
-        minusBtn.setStyle("-fx-background-color: #ff6b6b; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 30px;");
+        minusBtn.getStyleClass().add("quantity-btn");
         
         Label quantityLabel = new Label("0");
         quantityLabel.setStyle("-fx-font-weight: bold; -fx-min-width: 30px; -fx-alignment: center;");
         
         Button plusBtn = new Button("+");
-        plusBtn.setStyle("-fx-background-color: #51cf66; -fx-text-fill: white; -fx-font-weight: bold; -fx-min-width: 30px;");
+        plusBtn.getStyleClass().add("quantity-btn");
         
         quantityBox.getChildren().addAll(minusBtn, quantityLabel, plusBtn);
 
         // Add to cart button
-        Button addBtn = new Button("Add to Cart");
-        addBtn.getStyleClass().add("add-btn");
+        Button addBtn = new Button("🛒");
+        addBtn.getStyleClass().add("cart-btn");
         addBtn.setDisable(true);
 
         // Set up quantity controls

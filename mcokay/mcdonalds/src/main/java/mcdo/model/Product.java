@@ -1,7 +1,7 @@
 package mcdo.model;
 
 public class Product {
-    public enum Category { BURGER, DRINK, CHICKEN, FRIES, SPAGHETTI, BREAKFAST }
+    public enum Category { BURGER, DRINK, CHICKEN, FRIES, RICEBOWLS, BREAKFAST, MCCAFE }
 
     private final String   name;
     private final double   price;

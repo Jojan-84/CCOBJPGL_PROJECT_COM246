@@ -60,7 +60,7 @@
                 <VBox alignment="CENTER" spacing="20" style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 20, 0, 0, 5);">
                     <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../images/counter-icon.png" />
+                            <Image url="@../../images/cash.png" />
                         </image>
                     </ImageView>
                     <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Pay at Counter">
@@ -80,7 +80,7 @@
                 <VBox alignment="CENTER" spacing="20" style="-fx-background-color: white; -fx-padding: 30; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 20, 0, 0, 5);">
                     <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
                         <image>
-                            <Image url="@../../images/cashless-icon.png" />
+                            <Image url="@../../images/cashless.png" />
                         </image>
                     </ImageView>
                     <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #333333;" text="Cashless Payment">
