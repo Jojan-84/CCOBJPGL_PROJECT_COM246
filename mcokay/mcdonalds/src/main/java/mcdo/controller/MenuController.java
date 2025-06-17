@@ -169,7 +169,7 @@ public class MenuController implements Initializable {
         });
 
         /*  default view  */
-        showCategory(Product.Category.BURGER);
+        showAllFood();
     }
 
     @FXML
