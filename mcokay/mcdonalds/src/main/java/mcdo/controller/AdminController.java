@@ -309,32 +309,66 @@ public class AdminController implements Initializable {
 
         User user = mytable.getSelectionModel().getSelectedItem();
 
-        String username = usernametextfield.getText();
-
-        String password = passwordtextfield.getText();
-
-        String status = statuschoicebox.getValue();
-
-        username = username.trim();
-        password = password.trim();
-        status = status.trim();
-
-        if(username.length() == 0)
-        {
-            System.out.println("No username!");
+        if (user == null) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText("Please select a user to update");
+            alert.showAndWait();
             return false;
         }
 
-        if(password.length() == 0)
-        {
-            System.out.println("No password!");
+        String newUsername = usernametextfield.getText();
+        String newPassword = passwordtextfield.getText();
+        String newStatus = statuschoicebox.getValue();
+
+        newUsername = newUsername.trim();
+        newPassword = newPassword.trim();
+        if (newStatus != null) {
+            newStatus = newStatus.trim();
+        }
+
+        if(newUsername.length() == 0) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText("Username cannot be empty!");
+            alert.showAndWait();
             return false;
         }
 
-        //String filename = "accounts.txt";
+        if(newPassword.length() == 0) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText("Password cannot be empty!");
+            alert.showAndWait();
+            return false;
+        }
+
+        if(newStatus == null || newStatus.length() == 0) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setContentText("Please select a status!");
+            alert.showAndWait();
+            return false;
+        }
+
         String targetUsername = user.getUsername();
-        String newPassword = password;
-        String newStatus = status;
+        
+        // Check if the new username already exists (only if username is being changed)
+        if (!newUsername.equals(targetUsername)) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    if (!line.trim().isEmpty()) {
+                        String[] parts = line.split(",");
+                        if (parts.length >= 1 && parts[0].equals(newUsername)) {
+                            Alert alert = new Alert(AlertType.ERROR);
+                            alert.setContentText("Username '" + newUsername + "' already exists. Please choose a different username.");
+                            alert.showAndWait();
+                            return false;
+                        }
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
 
         List<String> updatedLines = new ArrayList<>();
 
@@ -346,7 +380,8 @@ public class AdminController implements Initializable {
                     String[] parts = line.split(",");
 
                     if (parts.length == 4 && parts[0].equalsIgnoreCase(targetUsername)) {
-                        updatedLines.add(parts[0] + "," + newPassword + "," + user.getAccountcreated() + "," + newStatus);
+                        // Use the new username instead of the original one
+                        updatedLines.add(newUsername + "," + newPassword + "," + user.getAccountcreated() + "," + newStatus);
                     } else {
                         updatedLines.add(line);
                     }
@@ -372,9 +407,11 @@ public class AdminController implements Initializable {
 
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("User successfully updated");
-        alert.setHeaderText("User " + targetUsername + " updated");
-        alert.setContentText("You can now use updated user");
+        alert.setHeaderText("User updated successfully");
+        alert.setContentText("Username: " + newUsername + "\nPassword: " + newPassword + "\nStatus: " + newStatus);
         alert.showAndWait();
+        
+        clearFields();
         loadData();
         return true;
     }

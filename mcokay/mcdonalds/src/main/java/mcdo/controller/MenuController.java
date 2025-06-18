@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
@@ -257,7 +258,7 @@ public class MenuController implements Initializable {
     public List<Product> getProductsByCategory(Product.Category category) {
         return catalog.stream()
                      .filter(p -> p.getCategory() == category)
-                     .toList();
+                     .collect(Collectors.toList());
     }
 
     /* ---------- Category Management Methods ---------- */
