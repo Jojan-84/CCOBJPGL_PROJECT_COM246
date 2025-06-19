@@ -155,7 +155,7 @@
                                         <VBox alignment="CENTER" spacing="8">
                                             <children>
                                                 <Label style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #ffc72c;" text="Thank you for choosing McDonald's!" />
-                                                <Label style="-fx-font-size: 14px; -fx-text-fill: #666666; -fx-font-style: italic;" text="Have a great day!" />
+                                                <Label style="-fx-font-size: 14px; -fx-text-fill: #666666; -fx-font-style: italic;" text="Sana pumasa" />
                                                 <Separator style="-fx-padding: 8 0;" />
                                                 <Label style="-fx-font-size: 11px; -fx-text-fill: #999999;" text="Visit mcdonalds.com for nutrition info" />
                                                 <Label style="-fx-font-size: 11px; -fx-text-fill: #999999;" text="Survey code: COM246KIOSK" />

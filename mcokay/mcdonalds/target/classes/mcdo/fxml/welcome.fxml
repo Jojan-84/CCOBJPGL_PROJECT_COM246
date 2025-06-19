@@ -14,7 +14,7 @@
    <children>
       <Pane prefHeight="98.0" prefWidth="1280.0" style="-fx-background-color: #FFC72C;">
          <children>
-            <Label layoutX="94.0" layoutY="31.0" prefHeight="46.0" prefWidth="392.0" text="Mcdonald's Kiosk" textFill="WHITE">
+            <Label layoutX="94.0" layoutY="31.0" prefHeight="46.0" prefWidth="392.0" text="McDonald's Kiosk" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="38.0" />
                </font>
@@ -34,7 +34,7 @@
             <Font name="System Bold" size="31.0" />
          </font>
       </Label>
-      <Label layoutX="640.0" layoutY="113.0" prefHeight="40.0" prefWidth="176.0" text="Mcdonald's" textFill="#ffc72c">
+      <Label layoutX="640.0" layoutY="113.0" prefHeight="40.0" prefWidth="176.0" text="McDonald's" textFill="#ffc72c">
          <font>
             <Font name="System Bold" size="31.0" />
          </font>

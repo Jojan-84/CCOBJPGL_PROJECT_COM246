@@ -1,5 +1,0 @@
-boss,boss,06-12-2025,admin
-juhan,321,06-12-2025,customer
-hello,itsme,06-12-2025,customer
-kupal,123,06-12-2025,customer
-matthew,321,09-06-2025,customer

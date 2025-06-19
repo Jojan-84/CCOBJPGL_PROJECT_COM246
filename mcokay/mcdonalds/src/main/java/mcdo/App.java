@@ -7,12 +7,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import mcdo.util.Constants;
 import mcdo.model.Cart;
+import mcdo.util.Constants;
 
-/**
- * Main entry-point for the McDonald's kiosk.
- */
 public class App extends Application {
 
     /* ───────────  singletons  ─────────── */
